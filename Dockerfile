@@ -13,7 +13,7 @@ RUN rpm -Uhv http://ftp-stud.hs-esslingen.de/pub/epel/6/i386/epel-release-6-8.no
 WORKDIR /etc/yum.repos.d
 RUN wget http://obs.kolabsys.com/repositories/Kolab:/3.3/CentOS_6/Kolab:3.3.repo
 RUN wget http://obs.kolabsys.com/repositories/Kolab:/3.3:/Updates/CentOS_6/Kolab:3.3:Updates.repo
-RUN gpg --keyserver pgp.mit.edu --recv-key 0x446D5A45
+RUN gpg --keyserver keys.gnupg.net --recv-key 0x446D5A45
 RUN gpg --export --armor devel@lists.kolab.org > devel.asc
 RUN rpm --import devel.asc
 RUN rm devel.asc
