@@ -116,6 +116,24 @@ Restart the kolab service to apply the changes:
 service kolabd restart
 ```
 
+## Change sender addresses and storage limit
+By default, the sender addresses will be something like user@host.mydomain.tld.
+You probably want to change this to user@mydomain.tld. This can be achieved by
+uncommenting the following line in `/etc/postfix/main.cf`:
+```
+myorigin = $mydomain
+```
+You might also want to change the size limit of incoming mails. This can be
+changed by adding the following to `/etc/postfix/main.cf`:
+```
+message_size_limit = <size limit in bytes>
+```
+
+For the changes to take effect you need to restart postfix:
+```
+service postfix restart
+```
+
 ## Catch-all addresses for subdomains
 If you want to have catch-all addresses for subdomains, you can use the following steps:
 
